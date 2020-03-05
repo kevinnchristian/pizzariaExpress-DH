@@ -9,7 +9,7 @@ route.get('/cadastrar/:pizza/:preco', (req, res) => {
     res.send(`Você cadastrou a pizza de sabor ${pizza} com  preço R$${preco},00 reais.`);
 });
 
-route.get('/:ver-cardapio', cardapioController.listarCardapio);
+route.get('/ver-cardapio', cardapioController.listarCardapio);
 
 module.exports = route;
 
