@@ -1,0 +1,48 @@
+body {
+  background-color: #f8e19c;
+}
+
+.carousel-item {
+  height: 400px;
+}
+
+header nav a img {
+  width: 40px;
+}
+
+.card-cardapio {
+  background-color: #ffbc64;
+  border: none;
+  color: #000000;
+}
+
+.card-cardapio button {
+  background-color: #fb8947;
+  border-color: #fb8947;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.card-cardapio button:hover {
+  background-color: #f57830;
+  border-color: #f57830;
+  transition: 0.2s;
+}
+
+.jumbotron {
+  background-color: #f8e19c;
+  color: #3d3c3c;
+}
+
+footer {
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 16px;
+  height: 40px;
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+
+footer img {
+  width: 20px;
+}

@@ -4,10 +4,8 @@ let cardapioController = {
 
     listarCardapio: (req, res) => {
         let listaDePizza = Cardapio.listarCardapio();
-        res.send(listaDePizza);
+        res.render('cardapio', {listaDePizza})
     }
-
-
 };
 
 module.exports = cardapioController;
