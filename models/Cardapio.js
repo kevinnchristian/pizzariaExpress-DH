@@ -1,16 +1,55 @@
-let cardapio = [
-    {nome: "Calamussa", preco: "R$30,00", img: 'pizzaCalamussa.jpg'},
-    {nome: "Frango com Catupiry", preco: "R$35,00", img: 'pizza3queijos.jpg'},
-    {nome: "Três Queijos", preco: "R$40,00", img: 'pizzaFrangoCatupiry.jpg'},
-    {nome: "Três Queijos", preco: "R$40,00", img: 'pizzaFrangoCatupiry.jpg'},
-    {nome: "Frango com Catupiry", preco: "R$35,00", img: 'pizza3queijos.jpg'},
-    {nome: "Calamussa", preco: "R$30,00", img: 'pizzaCalamussa.jpg'}
-    
-    
-];
+const fs = require('fs');
+const path = require('path');
+
+const arquivoCardapio = path.join('cardapio.json');
 
 function listarCardapio () {
-    return cardapio;
+    let listaDePizzas = JSON.parse(fs.readFileSync(arquivoCardapio, {encoding: 'utf-8'}));
+
+    return listaDePizzas;
 };
 
-module.exports = { listarCardapio }
+function cadastrarPizza(nome, preco, nomeImg) {
+    let novaPizza = {
+        nome,
+        preco,
+        img: nomeImg
+    }
+    let listaDePizzas = JSON.parse(fs.readFileSync(arquivoCardapio, {encoding: 'utf-8'}));
+
+    listaDePizzas.push(novaPizza);
+
+    fs.writeFileSync(arquivoCardapio, JSON.stringify(listaDePizzas));
+}
+
+function deletarPizza(posicao) {
+    let listaDePizzas = JSON.parse(fs.readFileSync(arquivoCardapio, {encoding: 'utf-8'}));
+
+    listaDePizzas.splice(posicao, 1);
+
+    return fs.writeFileSync(arquivoCardapio, JSON.stringify(listaDePizzas));
+}
+
+function buscarPizza(posicao) {
+    let listaDePizzas = JSON.parse(fs.readFileSync(arquivoCardapio, {encoding: 'utf-8'}));
+
+    return listaDePizzas[posicao];
+}
+
+function atualizarPizza(nome, preco, posicao){
+    let pizza = {
+        nome,
+        preco,
+        img: 'pizza3queijos.jpg'
+    }
+
+    let listaDePizzas = JSON.parse(fs.readFileSync(arquivoCardapio, {encoding: 'utf-8'}));
+
+    listaDePizzas[posicao] = pizza
+
+    fs.writeFileSync(arquivoCardapio, JSON.stringify(listaDePizzas));
+
+    return pizza
+}
+
+module.exports = { listarCardapio, cadastrarPizza, deletarPizza, buscarPizza, atualizarPizza }

@@ -16,8 +16,14 @@
           <img src="/img/<%= pizza.img %>" alt="Foto da pizza" class="card-img-top">
           <div class="card-body option-cardapio">
             <h5 class="card-title"><%= pizza.nome %></h5>
-            <p><%= pizza.preco %></p>
+            <p>R$<%= pizza.preco %></p>
             <button class="btn btn-primary">Comprar</button>
+          </div>
+          <div class="card-footer">
+            <form action="/cardapio/deletar/<%= index %>?_method=DELETE" method="POST">
+            <button class="btn btn-primary" type="submit">Excluir</button>
+          </form>
+          <a href="/cardapio/alterar/<%= index %>" class="btn btn-warning">Alterar</a>
           </div>
         </div>
       </div>
