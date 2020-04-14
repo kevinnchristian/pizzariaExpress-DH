@@ -1,4 +1,5 @@
 const Cardapio = require('../models/Cardapio');
+const email = require('../configs/email');
 
 let cardapioController = {
 
@@ -8,7 +9,23 @@ let cardapioController = {
     },
 
     formCadastro: (req, res) => {
-        res.render('cadastroCardapio', );
+
+        let envioEmail = {
+            from: 'teste.envio@gmail.com',
+            to: 'enviar.teste@gmail.com',
+            subject: 'Novo Cadastro de Pizza',
+            html:`<h1>A pizza: Teste foi cadastrada no sistema!</h1>`
+        }
+
+        email.sendMail(envioEmail, (error) => {
+            if (error) {
+                res.send("Deu ruim")
+            } else {
+                res.send("Deu bom, email enviado!!!")
+            }
+        })
+
+        res.render('cadastroCardapio');
     },
 
     salvarCadastro: (req, res) => {

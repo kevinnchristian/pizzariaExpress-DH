@@ -16,14 +16,27 @@ header nav a img {
   color: #000000;
 }
 
-.card-cardapio button {
+.card-body .botoes {
+  display: flex;
+}
+
+.card-body .comprar {
+  width: 8rem;
+}
+
+.card-body button img, a img {
+  width: 20px;
+}
+
+.card-body button, .alterar {
   background-color: #fb8947;
   border-color: #fb8947;
   color: #ffffff;
   font-weight: bold;
+  margin: 0 4px;
 }
 
-.card-cardapio button:hover {
+.card-body button:hover, .alterar:hover {
   background-color: #f57830;
   border-color: #f57830;
   transition: 0.2s;
@@ -39,7 +52,10 @@ footer {
   color: #ffffff;
   font-size: 16px;
   height: 50px;
+  width: 100%;
   margin-top: 50px;
+  position: fixed;
+  bottom: 0;
 }
 
 footer p {
