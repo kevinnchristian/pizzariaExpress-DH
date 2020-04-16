@@ -2,6 +2,8 @@ body {
   background-color: #f8e19c;
 }
 
+/* Configuração geral: */
+
 .carousel-item {
   height: 400px;
 }
@@ -10,41 +12,51 @@ header nav a img {
   width: 40px;
 }
 
-.card-cardapio {
-  background-color: #ffbc64;
-  border: none;
-  color: #000000;
+h2 {
+  color: #fb8947;
+  margin: 1rem;
 }
 
-.card-body .botoes {
-  display: flex;
+main a {
+  color:#fb8947;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 10px;
 }
 
-.card-body .comprar {
-  width: 8rem;
+main a:hover {
+  color:#f57830;
+  font-weight: bold;
+  text-decoration: none;
+  transform: 0.2s;
 }
 
-.card-body button img, a img {
-  width: 20px;
+.input-form {
+  border: 1px solid ;
+  width: 20rem;
 }
 
-.card-body button, .alterar {
+.input-file {
+  cursor: pointer;
+  height: 3rem;
+  padding: 10px;
+}
+
+.button-form {
   background-color: #fb8947;
-  border-color: #fb8947;
+  border: 0 solid #fb8947;
+  border-radius: 3px;
   color: #ffffff;
   font-weight: bold;
-  margin: 0 4px;
+  height: 2.2rem;
+  width: 8rem;
+  margin-top: 1rem;
 }
 
-.card-body button:hover, .alterar:hover {
+.button-form:hover {
   background-color: #f57830;
-  border-color: #f57830;
+  border: 0 solid #fb8947;
   transition: 0.2s;
-}
-
-.jumbotron {
-  background-color: #f8e19c;
-  color: #3d3c3c;
 }
 
 footer {
@@ -66,3 +78,80 @@ footer p {
 footer img {
   width: 20px;
 }
+
+
+/* Configurações por partes: */
+/* Configuração formularios */
+.form-login, .form-cadastro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 25rem;
+}
+
+.form-login label, .form-cadastro label {
+  font-weight: bold;
+  margin-bottom: 0;
+  margin-left: 2px;
+}
+
+.form-login .alert, .form-cadastro .alert {
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+/* Configurações carrossel */
+.jumbotron {
+  background-color: #f8e19c;
+  color: #3d3c3c;
+}
+
+/* Configuração dos cards do cardapio */
+.card-cardapio {
+  background-color: #ffbc64;
+  border: none;
+  color: #000000;
+}
+
+.card-cardapio p {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.card-body .botoes {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.card-body .botoes .button-excluir {
+  background-color: #ffbc64;
+  border: none;
+  margin-top: 16px;
+}
+
+.card-body .botoes .button-excluir img{
+  width: 25px;
+}
+
+.card-body .botoes a {
+  margin-left: 5px;
+  margin-top: 16px;
+}
+
+.card-body .botoes a img {
+  width: 25px;
+}
+
+/* Configuração ancora para pagina de cadastrar pizza */
+.cadastre-pizza {
+  position: relative;
+  left: 60rem;
+}
+
+

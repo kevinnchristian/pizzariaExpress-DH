@@ -1,7 +1,8 @@
 const express = require('express');
 const cardapioController = require('../controllers/cardapioController');
-const path = require('path')
+const path = require('path');
 const multer = require('multer');
+const auth = require('../middleware/auth');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -14,17 +15,17 @@ const storage = multer.diskStorage({
 })
 const upload = multer({ storage: storage })
 
-let route = express.Router();
+let routes = express.Router();
 
-route.get('/ver-cardapio', cardapioController.listarCardapio);
+routes.get('/ver-cardapio', auth, cardapioController.listarCardapio);
 
-route.get('/cadastro', cardapioController.formCadastro);
-route.post('/cadastro', upload.any(), cardapioController.salvarCadastro);
+routes.get('/cadastro', cardapioController.formCadastro);
+routes.post('/cadastro', upload.any(), cardapioController.salvarCadastro);
 
-route.delete('/deletar/:posicao', cardapioController.deletarCadastro);
+routes.delete('/deletar/:posicao', cardapioController.deletarCadastro);
 
-route.get('/alterar/:posicao', cardapioController.formAlteracao);
-route.put('/alterar', cardapioController.alterarPizza)
+routes.get('/alterar/:posicao', cardapioController.formAlteracao);
+routes.put('/alterar', cardapioController.alterarPizza)
 
-module.exports = route;
+module.exports = routes;
 

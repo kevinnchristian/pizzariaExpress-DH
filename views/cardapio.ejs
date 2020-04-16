@@ -8,6 +8,11 @@
   <%- include('includes/header') %>
 
   <main class="container mt-5">
+
+    <div class="row cadastre-pizza">
+      <a href="/cardapio/cadastro">Cadastrar-Pizza</a>
+    </div>
+
     <div class="row">
 
       <% listaDePizza.forEach((pizza, index) => { %>
@@ -15,16 +20,19 @@
         <div class="card card-cardapio">
           <img src="/img/<%= pizza.img %>" alt="Foto da pizza" class="card-img-top">
 
-          <div class="card-body option-cardapio">
+          <div class="card-body">
             <h5 class="card-title"><%= pizza.nome %></h5>
-            <p>R$<%= pizza.preco %></p>
+            <p>R$<%= pizza.preco %>,00</p>
 
             <div class="botoes">
-              <button class="btn btn-primary comprar">Comprar</button>
+              <button class="button-form">Comprar</button>
+
               <form action="/cardapio/deletar/<%= index %>?_method=DELETE" method="POST">
-                <button class="btn btn-primary" type="submit"><img src="/img/trash.svg" alt="Excluir"></button>
+                <button type="submit" class="button-excluir"><img src="/img/trash.svg" alt="Excluir"></button>
               </form>
-              <a href="/cardapio/alterar/<%= index %>" class="btn alterar"><img src="/img/change.svg" alt="Alterar"></a>
+
+              <a href="/cardapio/alterar/<%= index %>"><img src="/img/change.svg" alt="Alterar"></a>
+
             </div>
 
           </div>

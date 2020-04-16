@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../includes/head', {title: "P3Q - Registrar"}) %>
+
+<body>
+
+  <%- include('../includes/header') %>
+
+  <main class="container mt-5 d-flex flex-column justify-content-center align-items-center">
+    <div class="row">
+
+      <form action="/registro" method="POST" class="form-cadastro">
+
+        <h2>Cadastro de Usuário</h2>
+        <div class="form-group">
+          <label for="">Nome</label>
+          <input type="text" name="nome" id="nome" class="form-control input-form">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" class="form-control input-form">
+        </div>
+
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input type="password" name="senha" id="senha" class="form-control input-form">
+        </div>
+
+        <div class="form-group">
+          <button type="submi" class="button-form">Registrar</button>
+        </div>
+        
+      </form>
+
+  </main>
+
+  <%- include('../includes/footer') %>
+
+</body>
+
+</html>

@@ -1,7 +1,9 @@
 const express = require('express');
 const methodOverride = require('method-override');
-const cardapioRoute = require('./routes/cardapioRoute');
+const expressSession = require('express-session');
 const indexRoute = require('./routes/indexRoute');
+const cardapioRoute = require('./routes/cardapioRoute');
+const loginRoute = require('./routes/loginRoute');
 
 let app = express();
 
@@ -12,7 +14,14 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({
   extended:true
 }));
-app.use('/cardapio', cardapioRoute);
+
+app.use(expressSession({
+  secret: 'banana',
+  resave: true,
+  saveUninitialized: true
+}));
 app.use(indexRoute);
+app.use('/cardapio', cardapioRoute);
+app.use(loginRoute);
 
 app.listen(3535, () => console.log("O servidor está rodando!"));
